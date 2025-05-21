@@ -1,0 +1,12 @@
+.mainLayout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainContent {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-evenly;
+  align-items: center;
+}

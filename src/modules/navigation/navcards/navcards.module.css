@@ -1,0 +1,31 @@
+.navcards {
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+}
+
+.cardFront {
+  height: 15dvh;
+  transition: transform 0.5s;
+  cursor: pointer;
+  background-size: cover;
+}
+.cardFront:hover {
+  transform: rotateX(10deg) rotateY(20deg);
+}
+
+.portal {
+  width: 60%;
+  height: 60%;
+  filter: drop-shadow(0 0 40px lime);
+  animation: spin 15s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
