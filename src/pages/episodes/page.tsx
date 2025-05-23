@@ -1,37 +1,31 @@
-import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
-import { request } from "../../helpers/request";
-import type { Episode } from "../../shared/types/episode.types";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import styles from "./episodes.module.css";
 import { EpisodeCard } from "../../modules/episode";
+import { useFetchData } from "../../shared/hooks";
+import type { Episode } from "../../shared/types/episode.types";
 
 export const EpisodesPage = () => {
-  const [episodes, setEpisodes] = useState<Episode[]>([]);
-  const [error, setError] = useState<string | null>(null);
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const [episodes, error] = useFetchData<Episode[]>("/src/api/dataset/episode.json");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const serverData = await request("/src/api/dataset/episode.json");
-        setEpisodes(serverData);
-      } catch (error) {
-        setError("Ошибка при получении данных");
-        console.error("Ошибка при получении данных:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-  console.log("episodes", episodes);
-  if (error) return <h1>{error}</h1>;
-  return (
-    <section className={styles.episodesPage}>
-      <div className={styles.episodes}>
-        {episodes.map((episode) => (
-          <EpisodeCard key={episode.id} episode={episode} />
-        ))}
-      </div>
-      <Outlet />
-    </section>
-  );
+    if (error) return <h1>{error}</h1>;
+    if (!episodes) return <h1>"Эпизоды не найдены"</h1>;
+    return (
+        <section className={styles.episodesPage}>
+            {id ? (
+                <Outlet />
+            ) : (
+                <div className={styles.episodes}>
+                    {episodes.map((episode) => (
+                        <EpisodeCard
+                            onClick={() => navigate(`/episodes/${episode.id}`)}
+                            key={episode.id}
+                            episode={episode}
+                        />
+                    ))}
+                </div>
+            )}
+        </section>
+    );
 };

@@ -1,31 +1,38 @@
 .navcards {
-  display: flex;
-  align-items: center;
-  gap: 10rem;
+    display: flex;
+    align-items: center;
+    gap: 10rem;
 }
 
 .cardFront {
-  height: 15dvh;
-  transition: transform 0.5s;
-  cursor: pointer;
-  background-size: cover;
+    height: 15dvh;
+    transition: transform 0.5s;
+    cursor: pointer;
+    background-size: cover;
 }
 .cardFront:hover {
-  transform: rotateX(10deg) rotateY(20deg);
+    transform: rotateX(10deg) rotateY(20deg);
 }
 
 .portal {
-  width: 60%;
-  height: 60%;
-  filter: drop-shadow(0 0 40px lime);
-  animation: spin 15s linear infinite;
+    width: 40rem;
+    height: 40rem;
+    filter: drop-shadow(0 0 40px lime);
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    animation: spin 15s linear infinite;
+}
+
+.portal:hover {
+    animation: none;
+    transform: scale(1.1);
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
