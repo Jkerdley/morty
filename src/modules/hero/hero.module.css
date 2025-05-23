@@ -1,0 +1,46 @@
+.heroCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30rem;
+    height: 14rem;
+    background: rgba(10, 50, 50, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 2rem;
+    padding: 1rem;
+    backdrop-filter: blur(2rem);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-right: 0.25rem;
+}
+.heroCard:hover {
+    background: rgba(10, 50, 50, 0.5);
+    transform: scale3d(1.05, 1.05, 1.25);
+}
+.heroInfo {
+    padding-right: 0.25rem;
+}
+.heroInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    color: gainsboro;
+    text-align: left;
+}
+
+.heroImage {
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}

@@ -1,0 +1,28 @@
+.locationsPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    background: url("../../shared/assets/mainbgblur.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: auto;
+}
+
+.locationsGrid {
+    margin-top: 50rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 2rem;
+    max-width: 90%;
+}
+@media screen and (max-width: 1920px) {
+    .locationsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 100rem;
+    }
+}

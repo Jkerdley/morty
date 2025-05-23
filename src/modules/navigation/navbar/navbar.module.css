@@ -1,0 +1,32 @@
+.nav {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: auto;
+}
+.navLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: purple;
+    height: 2rem;
+    border-radius: 0.5rem;
+    padding-inline: 0.75rem;
+    transition: all 0.2s ease-in-out;
+}
+.navLink:hover {
+    background: #dc0b8f;
+    color: white;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    background: linear-gradient(to right, #6bff7a, #6bffb3);
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
