@@ -1,9 +1,11 @@
 import { NavLink } from "react-router-dom";
 import styles from "./NavBar.module.css";
+import { AuthStatus } from "../../components/authStatus/AuthStatus";
 
 export const NavBar = () => {
     return (
         <nav className={styles.nav}>
+            <AuthStatus />
             <div className={styles.menu}>
                 <NavLink
                     className={styles.navLink}
