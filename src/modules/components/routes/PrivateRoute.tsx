@@ -7,11 +7,7 @@ export const PrivateRoute = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
   if (auth?.user === null)
     return (
-      <Navigate
-        to={"/auth/login"}
-        state={{ from: location.pathname }}
-        replace
-      />
+      <Navigate to={"/login"} state={{ from: location.pathname }} replace />
     );
   return children;
 };
