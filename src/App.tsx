@@ -8,27 +8,69 @@ import { EpisodePage } from "./pages/episodes/episode/page";
 import { HeroPage } from "./pages/heroes/hero/page";
 import { LocationsPage } from "./pages/locations/page";
 import { LocationPage } from "./pages/locations/location/page";
+import { AuthProvider } from "./context/AuthProvider";
+import { LoginPage } from "./pages/auth/login/page";
+import { PrivateRoute } from "./modules/components/routes/PrivateRoute";
 
 function App() {
-    return (
-        <>
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<MainPage />} />
-                    <Route path="episodes" element={<EpisodesPage />}>
-                        <Route path=":id" element={<EpisodePage />} />
-                    </Route>
-                    <Route path="heroes" element={<HeroesPage />}>
-                        <Route path=":id" element={<HeroPage />} />
-                    </Route>
-                    <Route path="locations" element={<LocationsPage />}>
-                        <Route path=":id" element={<LocationPage />} />
-                    </Route>
-                </Route>
-                <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-        </>
-    );
+  return (
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={
+              <PrivateRoute>
+                <MainPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="episodes"
+            element={
+              <PrivateRoute>
+                <EpisodesPage />
+              </PrivateRoute>
+            }
+          >
+            <Route path=":id" element={<EpisodePage />} />
+          </Route>
+          <Route
+            path="heroes"
+            element={
+              <PrivateRoute>
+                <HeroesPage />
+              </PrivateRoute>
+            }
+          >
+            <Route path=":id" element={<HeroPage />} />
+          </Route>
+          <Route
+            path="locations"
+            element={
+              <PrivateRoute>
+                <LocationsPage />
+              </PrivateRoute>
+            }
+          >
+            <Route path=":id" element={<LocationPage />} />
+          </Route>
+        </Route>
+        <Route
+          path="*"
+          element={
+            <PrivateRoute>
+              <NotFoundPage />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/auth">
+          <Route path="login" element={<LoginPage />} />
+          <Route path="registration" element={<LoginPage />} />
+        </Route>
+      </Routes>
+    </AuthProvider>
+  );
 }
 
 export default App;
