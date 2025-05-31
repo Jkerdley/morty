@@ -14,6 +14,7 @@ export const LoginPage = () => {
     const formData = new FormData(event.currentTarget);
     const username = formData.get("username")?.toString();
     const password = formData.get("password")?.toString();
+
     if (!username || !password) {
       alert('Заполните поля формы "username" и "password"');
     } else {

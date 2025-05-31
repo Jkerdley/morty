@@ -1,22 +1,40 @@
+import { forwardRef } from "react";
 import type { Locations } from "../../shared/types/locations.types";
 import styles from "./locationCard.module.css";
 
 interface LocationCardProps {
   storyLocation: Locations;
   onClick?: () => void;
+  ref?: (node: any) => void;
 }
 
-export const LocationCard = ({ storyLocation, onClick }: LocationCardProps) => {
-  return (
-    <article onClick={onClick} className={styles.locationCard}>
-      <div className={styles.infoContainer}>
-        <p className={styles.locationName}>Название: {storyLocation.name}</p>
+export const LocationCard = forwardRef<HTMLDivElement, LocationCardProps>(
+  ({ storyLocation, onClick }, ref) => {
+    return (
+      <article ref={ref} onClick={onClick} className={styles.locationCard}>
+        <div className={styles.infoContainer}>
+          <p className={styles.locationName}>Название: {storyLocation.name}</p>
 
-        <div className={styles.locationInfo}>
-          <p>Тип: {storyLocation.type}</p>
-          <p>Измерение: {storyLocation.dimension}</p>
+          <div className={styles.locationInfo}>
+            <p>Тип: {storyLocation.type}</p>
+            <p>Измерение: {storyLocation.dimension}</p>
+          </div>
         </div>
-      </div>
-    </article>
-  );
-};
+      </article>
+    );
+  }
+);
+// export const LocationCard = ({ storyLocation, onClick }: LocationCardProps) => {
+//   return (
+//     <article onClick={onClick} className={styles.locationCard}>
+//       <div className={styles.infoContainer}>
+//         <p className={styles.locationName}>Название: {storyLocation.name}</p>
+
+//         <div className={styles.locationInfo}>
+//           <p>Тип: {storyLocation.type}</p>
+//           <p>Измерение: {storyLocation.dimension}</p>
+//         </div>
+//       </div>
+//     </article>
+//   );
+// };

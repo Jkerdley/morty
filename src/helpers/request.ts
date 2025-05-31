@@ -4,7 +4,7 @@ export function request<T>(url: string, method?: string, data?: T) {
       "content-type": "application/json",
     },
     method: method || "GET",
-    credentials: "include",
+    // credentials: "omit",
     body: data ? JSON.stringify(data) : undefined,
   })
     .then((res) => res.json())
