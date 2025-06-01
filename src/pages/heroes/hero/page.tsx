@@ -9,17 +9,17 @@ export const HeroPage = () => {
   const { id } = useParams();
 
   const {
-      error,
-      isLoading,
-      data: hero,
-    } = useFetchItem<Hero>(id, "https://rickandmortyapi.com/api/character");
+    error,
+    isLoading,
+    data: hero,
+  } = useFetchItem<Hero>(id, "https://rickandmortyapi.com/api/character");
 
   return (
     <DataErrorBoundary
       error={error}
       message="Не удалось загрузить данные о герое"
     >
-      {isLoading && <Loader/>}
+      {isLoading && <Loader />}
       {hero ? (
         <article className={styles.heroPageContainer}>
           <div className={styles.infoContainer}>
@@ -31,15 +31,11 @@ export const HeroPage = () => {
               <p>Особенности: {hero.species}</p>
             </div>
           </div>
-          <img
-            className={styles.heroImage}
-            src={hero.image}
-            alt={hero.name}
-          />
+          <img className={styles.heroImage} src={hero.image} alt={hero.name} />
         </article>
-      ) : 
+      ) : (
         !isLoading && <h1>"Герой не найден"</h1>
-      }
+      )}
     </DataErrorBoundary>
   );
 };

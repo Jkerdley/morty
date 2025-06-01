@@ -1,20 +1,28 @@
 .episodesPage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    background: url("../../shared/assets/mainbgblur.webp");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: url("../../shared/assets/mainbgblur.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-y: auto;
+  padding-top: 8rem;
+  padding-bottom: 2rem;
 }
+
 .episodes {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 10rem;
-    align-items: start;
-    justify-content: center;
-    gap: 1rem;
-    height: 70dvh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 90%;
+}
+@media screen and (max-width: 1920px) {
+  .episodes {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

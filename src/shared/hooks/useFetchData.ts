@@ -2,8 +2,8 @@ import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { request } from "../../helpers/request";
 
 export const useFetchData = <T>(
-  url: string,
-): [T[], string | null,  boolean, boolean, Dispatch<SetStateAction<number>>] => {
+  url: string
+): [T[], string | null, boolean, boolean, Dispatch<SetStateAction<number>>] => {
   const [data, setData] = useState<T[] | []>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
