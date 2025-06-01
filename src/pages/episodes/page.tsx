@@ -4,15 +4,35 @@ import { EpisodeCard } from "../../modules/episode";
 import { useFetchData } from "../../shared/hooks";
 import type { Episode } from "../../shared/types/episode.types";
 import { DataErrorBoundary } from "../../shared/components";
+import { useCallback, useRef } from "react";
+import { Loader } from "../../shared/ui/loaders/Loader";
 
 export const EpisodesPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [serverData, error] = useFetchData<Episode[]>(
-    "https://rickandmortyapi.com/api/episode",
-    "?page=3"
+
+  const observer = useRef<IntersectionObserver | null>(null);
+
+  const [episodes, error, isLoading, hasMore, setPage] = useFetchData<Episode>(
+    "https://rickandmortyapi.com/api/episode"
   );
-  console.log("serverData", serverData);
+
+  const lastNodeRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (isLoading) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          setPage((prevPage) => prevPage + 1);
+        }
+      });
+      if (node) {
+        observer.current.observe(node);
+      }
+    },
+    [isLoading, hasMore]
+  );
+
   return (
     <DataErrorBoundary
       error={error}
@@ -21,15 +41,30 @@ export const EpisodesPage = () => {
       <section className={styles.episodesPage}>
         {id ? (
           <Outlet />
+        ) : isLoading ? (
+          <Loader />
         ) : (
           <div className={styles.episodes}>
-            {serverData.map((episode) => (
-              <EpisodeCard
-                onClick={() => navigate(`/episodes/${episode.id}`)}
-                key={episode.id}
-                episode={episode}
-              />
-            ))}
+            {episodes.map((episode, index) => {
+              if (episodes.length === index + 1) {
+                return (
+                  <EpisodeCard
+                    onClick={() => navigate(`/episodes/${episode.id}`)}
+                    ref={lastNodeRef}
+                    key={episode.id}
+                    episode={episode}
+                  />
+                );
+              } else {
+                return (
+                  <EpisodeCard
+                    onClick={() => navigate(`/episodes/${episode.id}`)}
+                    key={episode.id}
+                    episode={episode}
+                  />
+                );
+              }
+            })}
           </div>
         )}
       </section>

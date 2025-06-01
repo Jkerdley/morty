@@ -1,35 +1,39 @@
 import { useParams } from "react-router-dom";
 import styles from "./episode.module.css";
 import { Player } from "../../../shared/ui/video-player";
-import { useFetchData } from "../../../shared/hooks";
+import { useFetchItem } from "../../../shared/hooks";
 import type { Episode } from "../../../shared/types/episode.types";
 import { DataErrorBoundary } from "../../../shared/components";
+import { Loader } from "../../../shared/ui/loaders/Loader";
 
 export const EpisodePage = () => {
   const { id } = useParams();
 
-  const [episodes, error] = useFetchData<Episode[]>(
-    "https://rickandmortyapi.com/api/episode"
-  );
-
-  const filteredEpisode = episodes.find((episode) => episode.id === Number(id));
+  const {
+    error,
+    isLoading,
+    data: episode,
+  } = useFetchItem<Episode>(id, "https://rickandmortyapi.com/api/episode");
 
   return (
     <DataErrorBoundary
       error={error}
       message="Не удалось загрузить данные об эпизоде"
     >
-      {filteredEpisode && (
+      {isLoading && <Loader />}
+      {episode ? (
         <article className={styles.episodeCard}>
           <div className={styles.titleContainer}>
-            <h2>Эпизод: {filteredEpisode.name}</h2>
+            <h2>Эпизод: {episode.name}</h2>
           </div>
           <div className={styles.dateAndEpisode}>
-            <p>Дата выхода: {filteredEpisode.air_date}</p>
-            <p>Сезон и эпизод: {filteredEpisode.episode}</p>
+            <p>Дата выхода: {episode.air_date}</p>
+            <p>Сезон и эпизод: {episode.episode}</p>
           </div>
           <Player />
         </article>
+      ) : (
+        !isLoading && <h1>"Эпизод не найден"</h1>
       )}
     </DataErrorBoundary>
   );
