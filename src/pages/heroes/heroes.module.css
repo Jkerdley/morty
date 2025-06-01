@@ -1,28 +1,28 @@
 .heroesPage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    height: 100vh;
-    width: 100vw;
-    background: url("../../shared/assets/mainbgblur.webp");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: url("../../shared/assets/mainbgblur.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-y: auto;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
 }
 
 .heroesGrid {
-    margin-top: 50rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    padding: 2rem;
-    max-width: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 90%;
 }
 @media screen and (max-width: 1920px) {
-    .heroesGrid {
-        grid-template-columns: repeat(2, 1fr);
-        margin-top: 100rem;
-    }
+  .heroesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

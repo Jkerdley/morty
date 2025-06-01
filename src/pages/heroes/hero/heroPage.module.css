@@ -1,39 +1,39 @@
 .heroPageContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 60rem;
-    height: 30rem;
-    background: rgba(5, 145, 145, 0.15);
-    border-radius: 2rem;
-    padding: 2rem;
-    backdrop-filter: blur(2rem);
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60rem;
+  height: 30rem;
+  background: rgba(5, 145, 145, 0.15);
+  border-radius: 2rem;
+  padding: 2rem;
+  backdrop-filter: blur(2rem);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
 }
 .infoContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-right: 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 0.55rem;
 }
 
 .heroInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    color: gainsboro;
-    text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  color: gainsboro;
+  text-align: left;
 }
 
 .heroImage {
-    width: 60%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 1rem;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
+  width: 60%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }

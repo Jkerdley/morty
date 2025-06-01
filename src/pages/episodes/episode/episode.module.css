@@ -1,15 +1,15 @@
 .episodeCard {
-    font-weight: 900;
+  font-weight: 900;
 
-    text-align: center;
+  text-align: center;
 }
 .titleContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #b8ff33;
-    color: rgb(53, 13, 87);
-    border-radius: 1rem;
-    padding: 0.25rem 1rem;
-    margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #b8ff33;
+  color: rgb(53, 13, 87);
+  border-radius: 1rem;
+  padding: 0.25rem 1rem;
+  margin-bottom: 0.5rem;
 }

@@ -4,27 +4,25 @@ import { LocationCard } from "../../modules/location";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import styles from "./locationsPage.module.css";
 import { useFetchData } from "../../shared/hooks";
-import { useCallback, useRef, useState, type ReactNode } from "react";
+import { useCallback, useRef } from "react";
 import { Loader } from "../../shared/ui/loaders/Loader";
 
 export const LocationsPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [page, setPage] = useState(1);
-  const observer = useRef();
-  const [locations, error, isLoading, hasMore] = useFetchData<Locations[]>(
-    "https://rickandmortyapi.com/api/location",
-    `?page=${page}`
-  );
+
+  const observer = useRef<IntersectionObserver | null>(null);
+
+  const [locations, error, isLoading, hasMore, setPage] =
+    useFetchData<Locations>("https://rickandmortyapi.com/api/location");
+
   const lastNodeRef = useCallback(
-    (node: any) => {
+    (node: HTMLDivElement | null) => {
       if (isLoading) return;
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
           setPage((prevPage) => prevPage + 1);
-          console.log("### visible");
-          console.log("### page", page);
         }
       });
       if (node) {
@@ -33,8 +31,6 @@ export const LocationsPage = () => {
     },
     [isLoading, hasMore]
   );
-
-  console.log("hasMore", hasMore);
 
   return (
     <DataErrorBoundary
@@ -45,8 +41,7 @@ export const LocationsPage = () => {
         {id ? (
           <Outlet />
         ) : isLoading ? (
-          // <Loader />
-          <h3> Загрузка...</h3>
+          <Loader />
         ) : (
           <div className={styles.locationsGrid}>
             {locations.map((location, index) => {

@@ -1,8 +1,8 @@
 .auth {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    transform: translateX(-50%);
-    z-index: 1000;
-    width: auto;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: auto;
 }
