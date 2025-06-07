@@ -1,5 +1,5 @@
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
-import { request } from "../../helpers/request";
+import { request } from "../lib/api";
 
 export const useFetchData = <T>(
   url: string

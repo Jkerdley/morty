@@ -1,14 +1,13 @@
 import { useParams } from "react-router-dom";
 import styles from "./episode.module.css";
-import { Player } from "../../../shared/ui/video-player";
+import { Player } from "../../../widgets/video-player";
 import { useFetchItem } from "../../../shared/hooks";
-import type { Episode } from "../../../shared/types/episode.types";
 import { DataErrorBoundary } from "../../../shared/components";
 import { Loader } from "../../../shared/ui/loaders/Loader";
+import type { Episode } from "../../../entities/episode/model/episode.types";
 
 export const EpisodePage = () => {
   const { id } = useParams();
-
   const {
     error,
     isLoading,

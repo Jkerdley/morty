@@ -1,11 +1,11 @@
-import { AuthProvider } from "./context/AuthProvider";
+import { AuthProvider } from "./app/providers/AuthProvider";
 import { Route, Routes } from "react-router-dom";
-import { Layout } from "./pages/Layout";
 import { lazy } from "react";
 import { LazyComponent, ErrorBoundary } from "./shared/components";
 import { LoginPage } from "./pages/auth/login/page";
 import { NotFoundPage } from "./pages/404/page";
-import { PrivateRoute } from "./modules/components/routes/PrivateRoute";
+import { Layout } from "./app/layout/Layout";
+import { PrivateRoute } from "./app/routing/privateRoute/PrivateRoute";
 
 const MainPage = lazy(() =>
   import("./pages/main/page").then((module) => ({ default: module.MainPage }))

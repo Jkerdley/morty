@@ -1,13 +1,12 @@
-import { DataErrorBoundary } from "../../../shared/components";
-import { useFetchItem } from "../../../shared/hooks";
-import type { Hero } from "../../../shared/types/hero.types";
-import { Loader } from "../../../shared/ui/loaders/Loader";
-import styles from "./heroPage.module.css";
 import { useParams } from "react-router-dom";
+import styles from "./heroPage.module.css";
+import { useFetchItem } from "../../../shared/hooks";
+import type { Hero } from "../../../entities/hero/model/hero.types";
+import { DataErrorBoundary } from "../../../shared/components";
+import { Loader } from "../../../shared/ui";
 
 export const HeroPage = () => {
   const { id } = useParams();
-
   const {
     error,
     isLoading,
