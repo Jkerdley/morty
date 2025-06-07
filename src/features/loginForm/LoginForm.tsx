@@ -25,14 +25,14 @@ export const LoginForm = () => {
         navigate(from, { replace: true });
       });
     } else {
-      message.error('Заполните поля формы "username" и "password"');
+      message.error('Заполните поля формы "имя пользователя" и "пароль"');
     }
   };
 
   const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (
     errorInfo
   ) => {
-    console.log("Validation failed:", errorInfo);
+    console.log("Ошибка валидации:", errorInfo);
     message.error("Пожалуйста, заполните все обязательные поля");
   };
 
