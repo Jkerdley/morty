@@ -1,5 +1,4 @@
-import { Logotype } from "../../modules/logotype";
-import { NavCard } from "../../modules/navigation/navcards";
+import { Logotype, NavCard } from "../../widgets";
 import styles from "./main.module.css";
 export const MainPage = () => {
   return (

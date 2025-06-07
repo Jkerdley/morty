@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { request } from "../../helpers/request";
+import { request } from "../lib/api";
 
 export function useFetchItem<T>(id: string | undefined, baseUrl: string) {
   const [error, setError] = useState<string | null>(null);

@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import styles from "./locationPage.module.css";
-import type { Locations } from "../../../shared/types/locations.types";
-import { DataErrorBoundary } from "../../../shared/components";
-import { Loader } from "../../../shared/ui/loaders/Loader";
 import { useFetchItem } from "../../../shared/hooks";
+import { DataErrorBoundary } from "../../../shared/components";
+import { Loader } from "../../../shared/ui";
+import type { Locations } from "../../../entities/location/model/locations.types";
 
 export const LocationPage = () => {
   const { id } = useParams();
