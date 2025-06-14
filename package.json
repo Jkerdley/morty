@@ -1,7 +1,7 @@
 {
   "name": "morty",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.9.5",
   "homepage": "https://Jkerdley.github.io/morty",
   "type": "module",
   "scripts": {
