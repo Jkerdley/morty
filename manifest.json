@@ -1,0 +1,79 @@
+{
+
+"name": "Morty",
+"short_name": "Morty",
+"start_url": "/index.html",
+"display": "standalone",
+"description": "Rick and Morty app",
+"lang": "Russian",
+"dir": "auto",
+"theme_color": "#18191a",
+"background_color": "#18191a",
+"orientation": "any",
+"icons": [
+    {
+        "src": "src/shared/assets/pwaicons/morty64x64.png",
+        "sizes": "64x64",
+        "type": "image/png",
+        "purpose": "any maskable"
+
+    },
+    {
+        "src": "src/shared/assets/pwaicons/morty72x72.png",
+        "sizes": "72x72",
+        "type": "image/png",
+        "purpose": "any maskable"
+    },
+    {
+        "src": "src/shared/assets/pwaicons/morty96x96.png",
+        "sizes": "96x96",
+        "type": "image/png",
+        "purpose": "any maskable"
+    },
+    {
+        "src": "src/shared/assets/pwaicons/morty128x128.png",
+        "sizes": "128x128",
+        "type": "image/png",
+        "purpose": "any maskable"
+    },
+    {
+        "src": "src/shared/assets/pwaicons/morty152x152.png",
+        "sizes": "152x152",
+        "type": "image/png",
+        "purpose": "any maskable"
+    },
+    {
+        "src": "src/shared/assets/pwaicons/morty192x192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any maskable"
+    },
+    {
+        "src": "src/shared/assets/pwaicons/morty384x384.png",
+        "sizes": "384x384",
+        "type": "image/png",
+        "purpose": "any maskable"
+    },
+    {
+        "src": "src/shared/assets/pwaicons/morty512x512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+    }
+],
+"screenshots": [
+    {
+        "src": "src/shared/assets/pwaicons/mortyscreen.jpg",
+        "sizes": "1714x1295",
+        "type": "image/jpg",
+        "description": "Morty main page screen"
+    }
+],
+ "shortcuts": [
+    {
+        "name":"Morty",
+        "url":"/index.html",
+        "description":"Rick and Morty universe app"
+    }
+]
+}

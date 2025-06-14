@@ -8,3 +8,9 @@ createRoot(document.getElementById("root")!).render(
     <App />
   </BrowserRouter>
 );
+
+if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('../../sw.js')
+    .then(() => console.log('Service worker registered'))
+    .catch(() => console.log('Service worker registration failed'))
+}

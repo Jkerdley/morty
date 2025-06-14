@@ -1,11 +1,11 @@
 import { useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./episodeList.module.css";
-import type { Episode } from "../../shared/types/episode.types";
 import { DataErrorBoundary } from "../../shared/components";
 import { EpisodeCard } from "../../entities/episode";
 import { Loader } from "../../shared/ui";
 import { useFetchData } from "../../shared/hooks";
+import type { Episode } from "../../entities/episode/model/episode.types";
 
 export const EpisodeList = () => {
   const navigate = useNavigate();
